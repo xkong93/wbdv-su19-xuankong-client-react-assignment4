@@ -39,7 +39,6 @@ export default class CourseEditorContainer
                 lessons={this.state.lessons}
                 topics={this.state.topics}
                 params={this.props.match.params} />
-            
             </div>
         )
     }
