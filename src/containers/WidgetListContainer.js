@@ -9,22 +9,19 @@ const stateToPropMapper = state => {
 };
 
 const propsToDispatcher = dispatch => (
-    // {
-    // updateHeading: (widget,size) => {
-    //     dispatch({type:"UPDATE_HEADING", widget: widget, size: size})
-    // },
-    updateWidget: widget => {
-        dispatch({type: "UPDATE_WIDGET", widget: widget});
-    },
-    deleteWidget: (wid) => {
-        dispatch({type: "DELETE_WIDGET", widgetId: wid});
-    },
-    createWidget: () => {
-        dispatch({
-            type: "CREATE_WIDGET"
-        });
-    }
-});
+    {
+        updateWidget: widget => {
+            dispatch({type: "UPDATE_WIDGET", widget: widget});
+        },
+        deleteWidget: (wid) => {
+            dispatch({type: "DELETE_WIDGET", widgetId: wid});
+        },
+        createWidget: () => {
+            dispatch({
+                type: "CREATE_WIDGET"
+            });
+        }
+    });
 
 const WidgetListContainer = connect(
     stateToPropMapper,

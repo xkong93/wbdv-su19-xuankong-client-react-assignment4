@@ -21,13 +21,10 @@ const widgetReducer = (state = {widgets: widgets}, action) => {
         }
     } else if (action.type === 'UPDATE_WIDGET') {
         return {
-            widgets: state.widgets.map(widget => widget.id == action.widget.id ? action.widget : widget)
-        }
-    } else if (action.type == "UPDATE_HEADING"){
-        return{
-            widgets:state.widgets.map(widget => {
-                if (widget.id === action.widget.id){
-                    widget.size = action.size
+            widgets: state.widgets.map(widget => {
+                if (widget.id === action.widget.id) {
+                    widget.size = action.widget.size
+                    return action.widget;
                 }
                 return widget
             })

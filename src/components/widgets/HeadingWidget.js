@@ -1,14 +1,14 @@
 import React from 'react'
 
 
-const HeadingWidget = ({widget, updateHeading}) =>{
+const HeadingWidget = ({widget, updateWidget}) =>{
 return (
 <div>
     <h1>Heading Widget</h1>
     <input placeholder="Heading text"
            //onChange={(event) => updateHeading({...widget, type: event.target.value})}
     />
-    <select onChange={(event) => updateHeading({...widget, size: event.target.value})}
+    <select onChange={(event) => updateWidget({...widget, size: event.target.value})}
                         value={widget.size}>
     >
         <option value="1">Heading 1</option>
