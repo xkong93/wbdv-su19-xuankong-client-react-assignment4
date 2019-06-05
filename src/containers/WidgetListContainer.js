@@ -2,7 +2,6 @@ import WidgetListComponent from "../components/WidgetListComponent";
 import {connect} from "react-redux";
 
 const stateToPropMapper = state => {
-    console.log(state)
     return {
         widgets: state.widgets
     };

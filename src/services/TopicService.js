@@ -15,8 +15,7 @@ export default class TopicService{
         topic['courseId'] = courseId
         topics.push(topic)
     }
-    findAllTopics = () =>
-        topics
+    findAllTopics = () => topics
 
     findAllTopicForLessonById = lessonId =>
         topics.filter(topic => topic.lessonId == lessonId)

@@ -7,7 +7,7 @@
     "text": "heading demo",
     "href": "",
     "src": "",
-    "ordered": true
+    "ordered": "true"
   },
   {
     "id": 234,
@@ -17,7 +17,7 @@
     "text": "para demo",
     "href": "",
     "src": "",
-    "ordered": true
+    "ordered": "true"
   },
   {
     "id": 345,
@@ -27,7 +27,7 @@
     "text": "img demo",
     "href": "",
     "src": "https://northeastern.blackboard.com/branding/_1_1/NortheasternUniversityBlackboardBannerGray.png",
-    "ordered": true
+    "ordered": "true"
   },
   {
     "id": 456,
@@ -37,7 +37,7 @@
     "text": "link 456",
     "href": "https://northeastern.blackboard.com/",
     "src": "",
-    "ordered": true
+    "ordered": "true"
   },
   {
     "id": 567,
@@ -47,6 +47,6 @@
     "text": "Hello World",
     "href": "",
     "src": "",
-    "ordered": true
+    "ordered": "true"
   }
 ]
