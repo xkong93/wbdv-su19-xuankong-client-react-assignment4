@@ -1,31 +1,34 @@
 import WidgetListComponent from "../components/WidgetListComponent";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
 const stateToPropMapper = state => {
-  console.log("dsadas");
-  console.log(state);
-  return {
-    widgets: state.widgets
-  };
+    console.log(state)
+    return {
+        widgets: state.widgets
+    };
 };
 
-const propsToDispatcher = dispatch => ({
-  updateWidget: widget => {
-    dispatch({ type: "UPDATE_WIDGET", widget: widget });
-  },
-  deleteWidget: wid => {
-    dispatch({ type: "DELETE_WIDGET", widgetId: wid });
-  },
-  createWidget: () => {
-    dispatch({
-      type: "CREATE_WIDGET"
-    });
-  }
+const propsToDispatcher = dispatch => (
+    // {
+    // updateHeading: (widget,size) => {
+    //     dispatch({type:"UPDATE_HEADING", widget: widget, size: size})
+    // },
+    updateWidget: widget => {
+        dispatch({type: "UPDATE_WIDGET", widget: widget});
+    },
+    deleteWidget: (wid) => {
+        dispatch({type: "DELETE_WIDGET", widgetId: wid});
+    },
+    createWidget: () => {
+        dispatch({
+            type: "CREATE_WIDGET"
+        });
+    }
 });
 
 const WidgetListContainer = connect(
-  stateToPropMapper,
-  propsToDispatcher
+    stateToPropMapper,
+    propsToDispatcher
 )(WidgetListComponent);
 
 export default WidgetListContainer;
