@@ -2,7 +2,7 @@ import React from 'react'
 
 const ParagraphWidget = ({widget, updateWidget}) =>
     <div>
-        <h1>Paragraph Widget [{widget.id}]</h1>
+        <h1>Paragraph Widget</h1>
         <textarea
             defaultValue={widget.text}
             onChange={(e) => updateWidget({...widget, text: e.target.value})}

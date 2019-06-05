@@ -4,9 +4,7 @@
     "type": "HEADING",
     "name": "Widget 1",
     "size": "1",
-    "text": "heading 123",
-    "height": "auto",
-    "width": "auto",
+    "text": "heading demo",
     "href": "",
     "src": "",
     "ordered": true
@@ -16,9 +14,7 @@
     "type": "PARAGRAPH",
     "name": "Widget 2",
     "size": "2",
-    "text": "para 234",
-    "height": "auto",
-    "width": "auto",
+    "text": "para demo",
     "href": "",
     "src": "",
     "ordered": true
@@ -28,11 +24,9 @@
     "type": "IMAGE",
     "name": "Widget 3",
     "size": "2",
-    "text": "img 345",
-    "height": "auto",
-    "width": "auto",
+    "text": "img demo",
     "href": "",
-    "src": "",
+    "src": "https://northeastern.blackboard.com/branding/_1_1/NortheasternUniversityBlackboardBannerGray.png",
     "ordered": true
   },
   {
@@ -41,9 +35,7 @@
     "name": "Widget 4",
     "size": "2",
     "text": "link 456",
-    "height": "auto",
-    "width": "auto",
-    "href": "",
+    "href": "https://northeastern.blackboard.com/",
     "src": "",
     "ordered": true
   },
@@ -52,9 +44,7 @@
     "type": "LIST",
     "name": "Widget 5",
     "size": "2",
-    "text": "list 567",
-    "height": "auto",
-    "width": "auto",
+    "text": "Hello World",
     "href": "",
     "src": "",
     "ordered": true

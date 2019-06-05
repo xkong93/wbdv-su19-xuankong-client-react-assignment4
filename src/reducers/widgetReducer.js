@@ -20,10 +20,16 @@ const widgetReducer = (state = {widgets: widgets}, action) => {
             ]
         }
     } else if (action.type === 'UPDATE_WIDGET') {
+        console.log(typeof JSON.parse(action.widget.ordered));
         return {
             widgets: state.widgets.map(widget => {
                 if (widget.id === action.widget.id) {
                     widget.size = action.widget.size
+                    widget.text = action.widget.text
+                    widget.href = action.widget.href
+                    widget.src = action.widget.src
+                    console.log(typeof widget.ordered)
+                    widget.ordered = 1
                     return action.widget;
                 }
                 return widget
