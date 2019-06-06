@@ -3,16 +3,16 @@ import React from 'react'
 
 const HeadingWidget = ({widget, updateWidget}) => {
     return (
-        <div>
+        <div className="border">
             <h1>Heading Widget</h1>
             <div className="form-group">
-                <input class="form-control" placeholder="Heading text"
+                <input class="form-control" placeholder={widget.text}
                        onChange={(event) => updateWidget({...widget, text: event.target.value})} // key point
                 />
             </div>
-
             <div className="form-group">
-                <select onChange={(event) => updateWidget({...widget, size: event.target.value})}
+                <select className="form-control"
+                        onChange={(event) => updateWidget({...widget, size: event.target.value})}
                         value={widget.size}>
                     >
                     <option value="1">Heading 1</option>
@@ -23,8 +23,12 @@ const HeadingWidget = ({widget, updateWidget}) => {
                 </select>
             </div>
 
-            <h3>{widget.name}</h3>
-            <h3>Preview</h3>
+            <div className="form-group">
+                <input className="form-control" placeholder={widget.name}
+                         onChange={(event) => updateWidget({...widget, name: event.target.value})}
+            />
+            </div>
+            <h4>Preview</h4>
             {widget.size === "1" && <h1>{widget.text}</h1>}
             {widget.size === "2" && <h2>{widget.text}</h2>}
             {widget.size === "3" && <h3>{widget.text}</h3>}

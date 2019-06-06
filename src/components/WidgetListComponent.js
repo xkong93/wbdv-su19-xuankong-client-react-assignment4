@@ -5,16 +5,16 @@ import LinkWidget from "./widgets/LinkWidget";
 import ListWidget from "./widgets/ListWidget";
 import ImageWidget from "./widgets/ImageWidget";
 
-const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,moveWidgetDown,moveWidgetUp}) =>//extends React.Component{
+const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget, moveWidgetDown, moveWidgetUp}) =>//extends React.Component{
 
 // bug: change form tag to div tag
-    <div>
+    <div >
         {
             widgets.map(widget =>
                 <div key={widget.id}>
-                    {widget.name}
-                    {widget.type}
-                    <div className="row justify-content-between">
+                    <div className="flex-lg-row float-right">
+                        <span><i onClick={() => moveWidgetDown(widget)} class="arrow fa fa-chevron-down"></i></span>
+                        <span><i onClick={() => moveWidgetUp(widget)} class="arrow fa fa-chevron-up"></i></span>
                         <select
                             onChange={(event) => updateWidget({...widget, type: event.target.value})}
                             value={widget.type}>
@@ -24,9 +24,8 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,
                             <option value="LIST">List</option>
                             <option value="LINK">Link</option>
                         </select>
-                        <span ><i onClick={() => moveWidgetDown(widget)} class="arrow fa fa-chevron-down"></i></span>
-                        <span><i onClick={() => moveWidgetUp(widget)}class="arrow fa fa-chevron-up"></i></span>
-                        <button
+
+                        <button className="btn btn-danger"
                             onClick={() => deleteWidget(widget.id)}>
                             Delete
                         </button>
@@ -54,10 +53,10 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,
                 </div>
             )
         }
-        <li>
-            <button onClick={createWidget}>
+        <div className="pull-right mt-2">
+            <button className="btn btn-success" onClick={createWidget}>
                 Add
             </button>
-        </li>
+        </div>
     </div>
 export default WidgetListComponent
