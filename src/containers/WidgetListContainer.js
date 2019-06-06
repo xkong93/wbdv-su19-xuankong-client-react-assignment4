@@ -19,6 +19,18 @@ const propsToDispatcher = dispatch => (
             dispatch({
                 type: "CREATE_WIDGET"
             });
+        },
+        moveWidgetUp:(widget) =>{
+            dispatch({
+                type:"Move_UP",
+                widget: widget
+            })
+        },
+        moveWidgetDown:(widget) =>{
+            dispatch({
+                type:"Move_Down",
+                widget: widget
+            })
         }
     });
 

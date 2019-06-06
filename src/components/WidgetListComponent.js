@@ -5,26 +5,31 @@ import LinkWidget from "./widgets/LinkWidget";
 import ListWidget from "./widgets/ListWidget";
 import ImageWidget from "./widgets/ImageWidget";
 
-const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget}) =>//extends React.Component{
-    <ul>
+const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,moveWidgetDown}) =>//extends React.Component{
+
+    <form>
         {
             widgets.map(widget =>
-                <li key={widget.id}>
+                <div key={widget.id}>
                     {widget.name}
                     {widget.type}
-                    <select
-                        onChange={(event) => updateWidget({...widget, type: event.target.value})}
-                        value={widget.type}>
-                        <option value="HEADING">Heading</option>
-                        <option value="PARAGRAPH">Paragraph</option>
-                        <option value="IMAGE">Image</option>
-                        <option value="LIST">List</option>
-                        <option value="LINK">Link</option>
-                    </select>
-                    <button
-                        onClick={() => deleteWidget(widget.id)}>
-                        Delete
-                    </button>
+                    <div className="row justify-content-between">
+                        <select
+                            onChange={(event) => updateWidget({...widget, type: event.target.value})}
+                            value={widget.type}>
+                            <option value="HEADING">Heading</option>
+                            <option value="PARAGRAPH">Paragraph</option>
+                            <option value="IMAGE">Image</option>
+                            <option value="LIST">List</option>
+                            <option value="LINK">Link</option>
+                        </select>
+                        <span ><i onClick={() => moveWidgetDown(widget)} class="arrow fa fa-chevron-down"></i></span>
+                        <span><i class="arrow fa fa-chevron-up"></i></span>
+                        <button
+                            onClick={() => deleteWidget(widget.id)}>
+                            Delete
+                        </button>
+                    </div>
                     {
                         widget.type === 'HEADING' &&
                         <HeadingWidget widget={widget} updateWidget={updateWidget}/>
@@ -45,7 +50,7 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget}
                         widget.type === 'IMAGE' &&
                         <ImageWidget widget={widget} updateWidget={updateWidget}/>
                     }
-                </li>
+                </div>
             )
         }
         <li>
@@ -53,5 +58,5 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget}
                 Add
             </button>
         </li>
-    </ul>
+    </form>
 export default WidgetListComponent
