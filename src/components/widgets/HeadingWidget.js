@@ -8,7 +8,7 @@ const HeadingWidget = ({widget, preview, updateWidget}) => {
             <div hidden={preview} className="form-group">
                 <label for="HeadingText">Heading Text</label>
 
-                <input id="HeadingText" class="form-control" placeholder={widget.text}
+                <input id="HeadingText" class="form-control" placeholder="Heading Text"
                        onChange={(event) => updateWidget({...widget, text: event.target.value})} // key point
                 />
             </div>

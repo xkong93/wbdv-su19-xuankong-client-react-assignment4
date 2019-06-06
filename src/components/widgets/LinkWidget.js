@@ -10,10 +10,19 @@ const LinkWidget = ({widget, preview, updateWidget}) => {
                 <div className="form-group">
                     <label for="Link">Link Path</label>
 
-                    <input id="Link" className="form-control" defaultValue={widget.href} placeholder={widget.href}
+                    <input id="Link" className="form-control" defaultValue={widget.href} placeholder="Link URL"
                            onChange={(event) => updateWidget({...widget, href: event.target.value})}/>
 
                 </div>
+
+                <div className="form-group">
+                    <label for="LinkText">Link Text</label>
+
+                    <input id="LinkText" className="form-control" placeholder="Link Text"
+                           onChange={(event) => updateWidget({...widget, text: event.target.value})}
+                    />
+                </div>
+                <h3>Preview</h3>
                 <div className="form-group">
                     <label for="LinkWidgetName">Widget Name</label>
 
@@ -27,7 +36,7 @@ const LinkWidget = ({widget, preview, updateWidget}) => {
 
             <div>
 
-                <a href={widget.href}>Link text</a>
+                <a href={widget.href}>{widget.text}</a>
             </div>
         </div>
     )

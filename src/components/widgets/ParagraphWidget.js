@@ -18,7 +18,7 @@ const ParagraphWidget = ({widget, preview, updateWidget}) =>
             <input id="ParaName" className="form-control" placeholder={widget.name}
                    onChange={(event) => updateWidget({...widget, name: event.target.value})}
             />
-                    <h2>Preview</h2>
+                    <h3>Preview</h3>
 
         </div>
 

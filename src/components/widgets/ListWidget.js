@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListWidget = ({widget, preview,updateWidget}) => {
+const ListWidget = ({widget, preview, updateWidget}) => {
 
     var array = widget.text.split("\n")
     var keyIncre = 0
@@ -11,9 +11,8 @@ const ListWidget = ({widget, preview,updateWidget}) => {
                 <label for="List">List Text</label>
 
                 <textarea id="List" className="form-control"
-                          defaultValue={widget.text}
                           onChange={(e) => updateWidget({...widget, text: e.target.value})}
-                          placeholder="Paragraph text"></textarea>
+                          placeholder="one list item per line"></textarea>
             </div>
 
             <div hidden={preview} className="form-group">
@@ -33,6 +32,11 @@ const ListWidget = ({widget, preview,updateWidget}) => {
                        onChange={(event) => updateWidget({...widget, name: event.target.value})}
                 />
             </div>
+            {
+                widget.ordered == "false" && <ul>
+                    {array.map(element => <li key={++keyIncre}>{element}</li>)}
+                </ul>
+            }
 
             {
                 widget.ordered == "true" && <ol>
@@ -40,11 +44,7 @@ const ListWidget = ({widget, preview,updateWidget}) => {
                 </ol>
             }
 
-            {
-                widget.ordered == "false" && <ul>
-                    {array.map(element => <li key={++keyIncre}>{element}</li>)}
-                </ul>
-            }
+
         </div>
 
 
