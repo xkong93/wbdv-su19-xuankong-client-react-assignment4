@@ -3,8 +3,10 @@ import {connect} from "react-redux";
 
 const stateToPropMapper = state => {
     console.log(state)
+
     return {
-        widgets: state.widgets
+        widgets: state.widgets,
+        preview: state.preview
     };
 };
 
@@ -21,18 +23,35 @@ const propsToDispatcher = dispatch => (
                 type: "CREATE_WIDGET"
             });
         },
-        moveWidgetUp:(widget) =>{
+        moveWidgetUp: (widget) => {
             dispatch({
-                type:"Move_Up",
+                type: "Move_Up",
                 widget: widget
             })
         },
-        moveWidgetDown:(widget) =>{
+        moveWidgetDown: (widget) => {
             dispatch({
-                type:"Move_Down",
+                type: "Move_Down",
                 widget: widget
             })
+        },
+        findWidget: (wid) => {
+            dispatch({
+                type: "FIND_WIDGET",
+                widgetId: wid
+            })
+        },
+        findAllWidgets: () => {
+            dispatch({
+                type: "FIND_ALL_WIDGET",
+            })
+        },
+        previewMode: () => {
+            dispatch({
+                type: "PREVIEW",
+            })
         }
+
     });
 
 const WidgetListContainer = connect(

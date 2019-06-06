@@ -6,7 +6,7 @@ const widgetService = WidgetService.getInstance()
 var data = widgetService.findAllWidgets();
 
 
-const widgetReducer = (state = {widgets: widgets}, action) => {
+const widgetReducer = (state = {widgets: widgets,preview : false}, action) => {
     if (action.type === 'DELETE_WIDGET') {
         return {
             widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
@@ -50,6 +50,23 @@ const widgetReducer = (state = {widgets: widgets}, action) => {
     }else if(action.type === "Move_Up"){
         return {
             widgets:newUpWidgets(action.widget,state.widgets)
+        }
+    }else if (action.type === "FIND_WIDGET"){
+        return {
+            widget:state.widgets.find( widget => widget.id == action.wid)
+        }
+    }else if (action.type === "FIND_ALL_WIDGET"){
+        return {
+            widgets:[...state.widgets]
+        }
+    }else if (action.type === "PREVIEW"){
+        console.log("preview")
+        // let newState = Object.assign({}, state)
+        // newState.preview = !newState.preview
+        // return newState
+        return {
+          widgets: state.widgets,
+          preview: !state.preview
         }
     }
     return state;
