@@ -5,9 +5,10 @@ import LinkWidget from "./widgets/LinkWidget";
 import ListWidget from "./widgets/ListWidget";
 import ImageWidget from "./widgets/ImageWidget";
 
-const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,moveWidgetDown}) =>//extends React.Component{
+const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,moveWidgetDown,moveWidgetUp}) =>//extends React.Component{
 
-    <form>
+// bug: change form tag to div tag
+    <div>
         {
             widgets.map(widget =>
                 <div key={widget.id}>
@@ -24,7 +25,7 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,
                             <option value="LINK">Link</option>
                         </select>
                         <span ><i onClick={() => moveWidgetDown(widget)} class="arrow fa fa-chevron-down"></i></span>
-                        <span><i class="arrow fa fa-chevron-up"></i></span>
+                        <span><i onClick={() => moveWidgetUp(widget)}class="arrow fa fa-chevron-up"></i></span>
                         <button
                             onClick={() => deleteWidget(widget.id)}>
                             Delete
@@ -58,5 +59,5 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, updateWidget,
                 Add
             </button>
         </li>
-    </form>
+    </div>
 export default WidgetListComponent

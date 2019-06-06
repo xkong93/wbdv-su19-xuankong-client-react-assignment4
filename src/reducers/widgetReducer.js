@@ -1,11 +1,12 @@
-// import widgets from '../data/widgets'
+import widgets from '../data/widgets'
 import WidgetService from '../services/WidgetService'
 // reducer => state => store => provider => container => map to props => components
 const widgetService = WidgetService.getInstance()
 
+var data = widgetService.findAllWidgets();
 
 
-const widgetReducer = (state = {widgets: widgetService.findAllWidgets()}, action) => {
+const widgetReducer = (state = {widgets: widgets}, action) => {
     if (action.type === 'DELETE_WIDGET') {
         return {
             widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
@@ -43,26 +44,44 @@ const widgetReducer = (state = {widgets: widgetService.findAllWidgets()}, action
             })
         }
     }else if(action.type === "Move_Down"){
-        console.log("down")
         return {
-            widgets:newWidgets(action.widget,state.widgets)
-
+            widgets:newDownWidgets(action.widget,state.widgets)
         }
-
+    }else if(action.type === "Move_Up"){
+        return {
+            widgets:newUpWidgets(action.widget,state.widgets)
+        }
     }
     return state;
 }
 
-var newWidgets = (targetWidget,widgets) => {
+var newDownWidgets = (targetWidget,widgets) => {
     let newArr = [...widgets]
     if(newArr.length  < 2){
         return newArr
     }
     for (var i = 0; i < newArr.length; i++){
         if(targetWidget.id === newArr[i].id && i < newArr.length - 1){
-            var tempWidget = Object.assign(newArr[i + 1])
+            var tempWidget = newArr[i + 1]
             console.log(tempWidget)
-            newArr[i + 1] = Object.assign(newArr[i]);
+            newArr[i + 1] = newArr[i];
+            newArr[i] = tempWidget;
+            break; //once it is found, it needs to break
+        }
+    }
+    return newArr
+}
+
+var newUpWidgets = (targetWidget,widgets) => {
+    let newArr = [...widgets]
+    if(newArr.length  < 2){
+        return newArr
+    }
+    for (var i = 0; i < newArr.length; i++){
+        if(targetWidget.id === newArr[i].id && i > 0){
+            var tempWidget = newArr[i - 1]
+            console.log(tempWidget)
+            newArr[i - 1] = newArr[i];
             newArr[i] = tempWidget;
             break; //once it is found, it needs to break
         }
