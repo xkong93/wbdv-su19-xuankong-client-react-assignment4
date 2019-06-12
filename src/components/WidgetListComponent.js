@@ -5,59 +5,78 @@ import LinkWidget from "./widgets/LinkWidget";
 import ListWidget from "./widgets/ListWidget";
 import ImageWidget from "./widgets/ImageWidget";
 
-const WidgetListComponent = ({widgets,preview,previewMode, deleteWidget, createWidget, updateWidget, moveWidgetDown, moveWidgetUp}) =>//extends React.Component{
+// ({widgets, preview, previewMode, deleteWidget, createWidget, updateWidget, moveWidgetDown, moveWidgetUp})
+
+class WidgetListComponent extends React.Component {
+
 
 // bug: change form tag to div tag
-    <div >
-        <div className="d-flex flex-row justify-content-end"><button onClick={()=>previewMode()} className="btn btn-warning">Preview</button></div>
-        {
-            widgets.map(widget =>
-                <div key={widget.id}>
-                    <div className="flex-lg-row float-right">
-                        <span hidden={preview}><i onClick={() => moveWidgetDown(widget)} class="arrow fa fa-chevron-down"></i></span>
-                        <span hidden={preview}><i onClick={() => moveWidgetUp(widget)} class="arrow fa fa-chevron-up"></i></span>
-                        <select hidden={preview}
-                            onChange={(event) => updateWidget({...widget, type: event.target.value})}
-                            value={widget.type}>
-                            <option value="HEADING">Heading</option>
-                            <option value="PARAGRAPH">Paragraph</option>
-                            <option value="IMAGE">Image</option>
-                            <option value="LIST">List</option>
-                            <option value="LINK">Link</option>
-                        </select>
 
-                        <button hidden={preview} className="btn btn-danger"
-                            onClick={() => deleteWidget(widget.id)}>
-                            Delete
-                        </button>
-                    </div>
-                    {
-                        widget.type === 'HEADING' &&
-                        <HeadingWidget  widget={widget} updateWidget={updateWidget} preview={preview}/>
-                    }
-                    {
-                        widget.type === 'PARAGRAPH' &&
-                        <ParagraphWidget widget={widget} updateWidget={updateWidget} preview={preview}/>
-                    }
-                    {
-                        widget.type === 'LINK' &&
-                        <LinkWidget widget={widget} updateWidget={updateWidget} preview={preview}/>
-                    }
-                    {
-                        widget.type === 'LIST' &&
-                        <ListWidget widget={widget} updateWidget={updateWidget} preview={preview}/>
-                    }
-                    {
-                        widget.type === 'IMAGE' &&
-                        <ImageWidget widget={widget} updateWidget={updateWidget} preview={preview}/>
-                    }
+    render() {
+        return (
+            <div>
+                <div className="d-flex flex-row justify-content-end">
+                    <button onClick={() => this.props.previewMode()} className="btn btn-warning">Preview</button>
                 </div>
-            )
-        }
-        <div className="pull-right mt-2">
-            <button className="btn btn-success" onClick={createWidget}>
-                Add
-            </button>
-        </div>
-    </div>
+                {
+                    this.props.widgets.map(widget =>
+                        <div key={widget.id}>
+                            <div className="flex-lg-row float-right">
+                        <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetDown(widget)}
+                                                  class="arrow fa fa-chevron-down"></i></span>
+                                <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetUp(widget)}
+                                                          class="arrow fa fa-chevron-up"></i></span>
+                                <select hidden={this.props.preview}
+                                        onChange={(event) => this.props.updateWidget({
+                                            ...widget,
+                                            type: event.target.value
+                                        })} // pass back an obj
+                                        value={widget.type}>
+                                    <option value="HEADING">Heading</option>
+                                    <option value="PARAGRAPH">Paragraph</option>
+                                    <option value="IMAGE">Image</option>
+                                    <option value="LIST">List</option>
+                                    <option value="LINK">Link</option>
+                                </select>
+
+                                <button hidden={this.props.preview} className="btn btn-danger"
+                                        onClick={() => this.props.deleteWidget(widget.id)}>
+                                    Delete
+                                </button>
+                            </div>
+                            {
+                                widget.type === 'HEADING' &&
+                                <HeadingWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                            }
+                            {
+                                widget.type === 'PARAGRAPH' &&
+                                <ParagraphWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                            }
+                            {
+                                widget.type === 'LINK' &&
+                                <LinkWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                            }
+                            {
+                                widget.type === 'LIST' &&
+                                <ListWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                            }
+                            {
+                                widget.type === 'IMAGE' &&
+                                <ImageWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                            }
+                        </div>
+                    )
+
+                }
+                <div className="pull-right mt-2">
+                    <button className="btn btn-success" onClick={this.props.createWidget}>
+                        Add
+                    </button>
+                </div>
+            </div>
+        )
+    }
+
+}
+
 export default WidgetListComponent

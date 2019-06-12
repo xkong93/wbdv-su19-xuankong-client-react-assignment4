@@ -1,6 +1,6 @@
 import WidgetListComponent from "../components/WidgetListComponent";
 import {connect} from "react-redux";
-
+import WidgetService from "../services/WidgetService"
 const stateToPropMapper = state => {
     console.log(state)
 
@@ -12,6 +12,9 @@ const stateToPropMapper = state => {
 
 const propsToDispatcher = dispatch => (
     {
+        loadWidgets: () =>{
+
+        },
         updateWidget: widget => {
             dispatch({type: "UPDATE_WIDGET", widget: widget});
         },

@@ -3,10 +3,9 @@ import WidgetService from '../services/WidgetService'
 // reducer => state => store => provider => container => map to props => components
 const widgetService = WidgetService.getInstance()
 
-var data = widgetService.findAllWidgets();
+var aa = widgetService.findAllWidgets();
 
-
-const widgetReducer = (state = {widgets: widgets,preview : false}, action) => {
+const widgetReducer = (state = {widgets: [],preview : false}, action) => {
     if (action.type === 'DELETE_WIDGET') {
         return {
             widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
@@ -30,6 +29,7 @@ const widgetReducer = (state = {widgets: widgets,preview : false}, action) => {
         }
     } else if (action.type === 'UPDATE_WIDGET') {
         // console.log(typeof JSON.parse(action.widget.ordered));
+        console.log(action.widget);
         return {
             widgets: state.widgets.map(widget => {
                 if (widget.id === action.widget.id) {
