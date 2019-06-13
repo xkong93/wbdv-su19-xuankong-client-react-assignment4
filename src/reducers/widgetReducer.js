@@ -24,21 +24,11 @@ const widgetReducer = (state = {widgets: [],preview : false}, action) => {
             ]
         }
     } else if (action.type === 'UPDATE_WIDGET') {
-        // console.log(typeof JSON.parse(action.widget.ordered));
-        console.log(action.widget);
+        console.log(action.widgets)
         return {
-            widgets: state.widgets.map(widget => {
-                if (widget.id === action.widget.id) {
-                    widget.size = action.widget.size
-                    widget.text = action.widget.text
-                    widget.href = action.widget.href
-                    widget.src = action.widget.src
-                    widget.ordered = action.widget.ordered  // how to convert string to boolean
-                    return action.widget;
-                }
-                return widget
-            })
+            widgets: action.widgets
         }
+
     }else if(action.type === "Move_Down"){
         return {
             widgets:newDownWidgets(action.widget,state.widgets)
@@ -65,7 +55,6 @@ const widgetReducer = (state = {widgets: [],preview : false}, action) => {
           preview: !state.preview
         }
     }else if (action.type === "FIND_ALL_WIDGETS"){
-        console.log(action.widgets)
         return {
             widgets:action.widgets
         }

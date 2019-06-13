@@ -36,6 +36,8 @@ export default class WidgetService {
     }
 
     updateWidget = (widgetId, newWidget) => {
+        console.log(typeof(widgetId))
+        console.log(newWidget);
         return fetch(this.url + '/' + widgetId, {
             method: "PUT",
             body: JSON.stringify(newWidget),

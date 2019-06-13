@@ -19,7 +19,7 @@ const ListWidget = ({widget, preview, updateWidget}) => {
                 <label for="ListChoice">List Style</label>
 
                 <select id="ListChoice" className="form-control" defaultValue="true"
-                        onChange={(e) => updateWidget({...widget, ordered: e.target.value})}>
+                        onChange={(e) => updateWidget({...widget, order: e.target.value})}>
                     <option value={false}>Unordered List</option>
                     <option value={true}>Ordered List</option>
                 </select>
@@ -33,13 +33,13 @@ const ListWidget = ({widget, preview, updateWidget}) => {
                 />
             </div>
             {
-                widget.ordered == "false" && <ul>
+                widget.order === "false" && <ul>
                     {array.map(element => <li key={++keyIncre}>{element}</li>)}
                 </ul>
             }
 
             {
-                widget.ordered == "true" && <ol>
+                widget.order === "true" && <ol>
                     {array.map(element => <li key={++keyIncre}>{element}</li>)}
                 </ol>
             }

@@ -5,7 +5,6 @@ import WidgetService from "../services/WidgetService"
 const service = WidgetService.getInstance();
 
 const stateToPropMapper = state => {
-
     return {
         widgets: state.widgets,
         preview: state.preview
@@ -22,10 +21,22 @@ const propsToDispatcher = dispatch => (
                     widgets: widgets
                 }));
         },
-        updateWidget: widget => {
-            dispatch({type: "UPDATE_WIDGET", widget: widget});
+        updateWidget: (widget) => {
+
+            service
+                .updateWidget(widget.id,widget)
+                .then(service
+                .findAllWidgets()
+                .then(widgets => dispatch({
+                    type: "UPDATE_WIDGET",
+                    widgets: widgets
+                })))
+
+
         },
         deleteWidget: (wid) => {
+
+
             dispatch({type: "DELETE_WIDGET", widgetId: wid});
         },
         createWidget: () => {

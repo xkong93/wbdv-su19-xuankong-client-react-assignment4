@@ -22,7 +22,7 @@ class WidgetListComponent extends React.Component {
                     <button onClick={() => this.props.previewMode()} className="btn btn-warning">Preview</button>
                 </div>
                 {
-                    this.props.widgets.map(widget =>
+                       this.props.widgets.map(widget =>
                         <div key={widget.id}>
                             <div className="flex-lg-row float-right">
                         <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetDown(widget)}
@@ -30,10 +30,10 @@ class WidgetListComponent extends React.Component {
                                 <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetUp(widget)}
                                                                      class="arrow fa fa-chevron-up"></i></span>
                                 <select hidden={this.props.preview}
-                                        onChange={(event) => this.props.updateWidget({
+                                        onChange={(event) => this.props.updateWidget(({
                                             ...widget,
                                             type: event.target.value
-                                        })} // pass back an obj
+                                        }))} // pass back an obj
                                         value={widget.type}>
                                     <option value="HEADING">Heading</option>
                                     <option value="PARAGRAPH">Paragraph</option>

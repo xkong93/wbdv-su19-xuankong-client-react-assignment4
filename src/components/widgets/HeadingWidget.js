@@ -3,15 +3,20 @@ import React from 'react'
 
 const HeadingWidget = ({widget, preview, updateWidget}) => {
     return (
+
         <div className="border">
             <h1 hidden={preview} >Heading Widget</h1>
             <div hidden={preview} className="form-group">
+                {console.log("sdsds")}
+                            {console.log(widget.id)}
+
                 <label for="HeadingText">Heading Text</label>
 
                 <input id="HeadingText" class="form-control" placeholder="Heading Text"
                        onChange={(event) => updateWidget({...widget, text: event.target.value})} // key point
                 />
             </div>
+
             <div hidden={preview} className="form-group">
 
                 <label for="HeadingStyle">Heading Style</label>
