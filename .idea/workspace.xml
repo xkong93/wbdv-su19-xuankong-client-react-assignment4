@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede41e50-50d4-4b51-91f2-183b9e69f42a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/CourseListComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseListComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CourseRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseRow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CourseListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CourseListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CourseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CourseService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CourseListComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="180">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/CourseListContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="450">
+              <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -291,12 +288,12 @@
       <workItem from="1560025124199" duration="4677000" />
       <workItem from="1560298874461" duration="431000" />
       <workItem from="1560370923763" duration="236000" />
-      <workItem from="1560374164530" duration="30036000" />
+      <workItem from="1560374164530" duration="30390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89990000" />
+    <option name="totallyTimeSpent" value="90344000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,7 +308,7 @@
     <frame x="1920" y="23" width="1080" height="1897" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931225" visible="true" weight="0.25306892" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931225" visible="true" weight="0.101983" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5006878" side_tool="true" weight="0.21433142" />
@@ -579,6 +576,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/CourseService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CourseListComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/CourseEditorContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -589,27 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/CourseService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CourseListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/CourseListContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="450">
+          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
