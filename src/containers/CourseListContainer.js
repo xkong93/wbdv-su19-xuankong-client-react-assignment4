@@ -10,14 +10,22 @@ export default class CourseListContainer extends React.Component {
     //new an obj
     this.courseService = CourseService.getInstance();
     this.state = {
-      courses: this.courseService.findAllCourses(),
+      courses: [],
       toggle: false,
     };
+    console.log(this.state.courses)
     this.onclickChangeView = this.onclickChangeView.bind(this);
-    this.deleteRow = this.deleteRow.bind(this);
   }
 
- onclickChangeView(){
+
+  componentDidMount() {
+      this.courseService.findAllCourses()
+          .then(courses => this.setState({
+              courses:courses,
+          }))
+  }
+
+    onclickChangeView(){
     this.setState({
         toggle: !this.state.toggle
     })

@@ -3,6 +3,7 @@ import courses from './courses.json'
 class CourseService {
 
     static myInstance = null;
+    url = 'http://localhost:8080/api/courses';
 
     static getInstance() {
         if (CourseService.myInstance == null) {
@@ -13,19 +14,35 @@ class CourseService {
     }
 
     createCourse = course => {
-        courses.push(course)
+        return fetch(this.url, {
+            method: "POST",
+            body: JSON.stringify(course),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(response => response.json());
     }
     findAllCourses = () => {
-        return courses
+        return fetch(this.url).then(response => response.json());
     }
     findCourseById = courseId => {
-        return courses.find(course => course.id == courseId)
+        return fetch(this.url + '/' + courseId)
+            .then(response => response.json());
     }
     updateCourse = (courseId, newCourse) => {
-        courses = courses.map(course => course.id == courseId ? newCourse : course)
+        // courses = courses.map(course => course.id == courseId ? newCourse : course)
+        return fetch(this.url + '/' + courseId, {
+            method: 'Post',
+            body: JSON.stringify(newCourse),
+            headers: {
+                'content-type': 'applicaiton/json'
+            }
+        }).then(response => response.json());
     }
     deleteCourse = courseId => {
-        courses = courses.filter(course => course.id !== courseId)
+        return fetch(this.url + '/' + courseId, {
+            method: "DELETE"
+        })
     }
 }
 
