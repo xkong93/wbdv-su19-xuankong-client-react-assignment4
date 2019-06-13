@@ -2,7 +2,7 @@
 export default class WidgetService {
     static myInstance = null;
 
-    url = 'https://fathomless-meadow-74479.herokuapp.com/api/widgets';
+    url = 'https://infinite-headland-44584.herokuapp.com/api/widgets';
 
     static getInstance() {
         if (WidgetService.myInstance == null) {
