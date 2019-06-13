@@ -9,8 +9,11 @@ import ImageWidget from "./widgets/ImageWidget";
 
 class WidgetListComponent extends React.Component {
 
-
-// bug: change form tag to div tag
+    constructor(props) {
+        super(props);
+        this.props.loadWidgets();
+        // console.log(this.props.widgets)
+    }
 
     render() {
         return (
@@ -23,9 +26,9 @@ class WidgetListComponent extends React.Component {
                         <div key={widget.id}>
                             <div className="flex-lg-row float-right">
                         <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetDown(widget)}
-                                                  class="arrow fa fa-chevron-down"></i></span>
+                                                             class="arrow fa fa-chevron-down"></i></span>
                                 <span hidden={this.props.preview}><i onClick={() => this.props.moveWidgetUp(widget)}
-                                                          class="arrow fa fa-chevron-up"></i></span>
+                                                                     class="arrow fa fa-chevron-up"></i></span>
                                 <select hidden={this.props.preview}
                                         onChange={(event) => this.props.updateWidget({
                                             ...widget,
@@ -46,23 +49,28 @@ class WidgetListComponent extends React.Component {
                             </div>
                             {
                                 widget.type === 'HEADING' &&
-                                <HeadingWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                                <HeadingWidget widget={widget} updateWidget={this.props.updateWidget}
+                                               preview={this.props.preview}/>
                             }
                             {
                                 widget.type === 'PARAGRAPH' &&
-                                <ParagraphWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                                <ParagraphWidget widget={widget} updateWidget={this.props.updateWidget}
+                                                 preview={this.props.preview}/>
                             }
                             {
                                 widget.type === 'LINK' &&
-                                <LinkWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                                <LinkWidget widget={widget} updateWidget={this.props.updateWidget}
+                                            preview={this.props.preview}/>
                             }
                             {
                                 widget.type === 'LIST' &&
-                                <ListWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                                <ListWidget widget={widget} updateWidget={this.props.updateWidget}
+                                            preview={this.props.preview}/>
                             }
                             {
                                 widget.type === 'IMAGE' &&
-                                <ImageWidget widget={widget} updateWidget={this.props.updateWidget} preview={this.props.preview}/>
+                                <ImageWidget widget={widget} updateWidget={this.props.updateWidget}
+                                             preview={this.props.preview}/>
                             }
                         </div>
                     )

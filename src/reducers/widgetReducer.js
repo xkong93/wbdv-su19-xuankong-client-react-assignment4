@@ -1,9 +1,5 @@
-import widgets from '../data/widgets'
 import WidgetService from '../services/WidgetService'
 // reducer => state => store => provider => container => map to props => components
-const widgetService = WidgetService.getInstance()
-
-var aa = widgetService.findAllWidgets();
 
 const widgetReducer = (state = {widgets: [],preview : false}, action) => {
     if (action.type === 'DELETE_WIDGET') {
@@ -60,13 +56,18 @@ const widgetReducer = (state = {widgets: [],preview : false}, action) => {
             widgets:[...state.widgets]
         }
     }else if (action.type === "PREVIEW"){
-        console.log("preview")
+        // console.log(log"preview")
         // let newState = Object.assign({}, state)
         // newState.preview = !newState.preview
         // return newState
         return {
           widgets: state.widgets,
           preview: !state.preview
+        }
+    }else if (action.type === "FIND_ALL_WIDGETS"){
+        console.log(action.widgets)
+        return {
+            widgets:action.widgets
         }
     }
     return state;
