@@ -43,7 +43,7 @@ class WidgetListComponent extends React.Component {
                                 </select>
 
                                 <button hidden={this.props.preview} className="btn btn-danger"
-                                        onClick={() => this.props.deleteWidget(widget.id)}>
+                                        onClick={() => this.props.deleteWidget(widget)}>
                                     Delete
                                 </button>
                             </div>

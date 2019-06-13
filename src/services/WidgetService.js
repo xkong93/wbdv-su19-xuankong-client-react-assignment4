@@ -36,8 +36,6 @@ export default class WidgetService {
     }
 
     updateWidget = (widgetId, newWidget) => {
-        console.log(typeof(widgetId))
-        console.log(newWidget);
         return fetch(this.url + '/' + widgetId, {
             method: "PUT",
             body: JSON.stringify(newWidget),
@@ -51,7 +49,7 @@ export default class WidgetService {
     deleteWidget = (widgetId) => {
         return fetch(this.url + '/' + widgetId,{
             method:"DELETE"
-        }).then(response => response.json());
+        }) //.then(response => response.json()); no need then but need return
         // widgets = widgets.filter(widget => widget.id != widgetId);
     }
 }

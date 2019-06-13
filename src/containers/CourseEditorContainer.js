@@ -27,7 +27,6 @@ export default class CourseEditorContainer
             lessons: lessons,
             topics: topics
         }
-        console.log(this.state)
     }
     render() {
         return(

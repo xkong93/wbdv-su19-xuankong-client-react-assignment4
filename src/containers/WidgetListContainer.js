@@ -24,26 +24,49 @@ const propsToDispatcher = dispatch => (
         updateWidget: (widget) => {
 
             service
-                .updateWidget(widget.id,widget)
+                .updateWidget(widget.id, widget)
                 .then(service
-                .findAllWidgets()
-                .then(widgets => dispatch({
-                    type: "UPDATE_WIDGET",
-                    widgets: widgets
-                })))
+                    .findAllWidgets()
+                    .then(widgets => dispatch({
+                        type: "UPDATE_WIDGET",
+                        widgets: widgets
+                    })))
 
 
         },
-        deleteWidget: (wid) => {
-
-
-            dispatch({type: "DELETE_WIDGET", widgetId: wid});
+        deleteWidget: (widget) => {
+            service
+                .deleteWidget(widget.id)
+                .then(service
+                    .findAllWidgets()
+                    .then(widgets => dispatch({
+                        type: "DELETE_WIDGET",
+                        widgets: widgets
+                    })))
         },
         createWidget: () => {
-            dispatch({
-                type: "CREATE_WIDGET"
-            });
+            let newWidget =
+                {
+                    id: (new Date()).getTime(),
+                    type: 'HEADING',
+                    name: 'New Widget',
+                    size: '1',
+                    text: "heading demo",
+                    src: "",
+                    order: "1"
+                }
+
+            service
+                .createWidget(newWidget)
+                .then(service
+                    .findAllWidgets()
+                    .then(widgets => dispatch({
+                        type: "CREATE_WIDGET",
+                        widgets: widgets
+                    })));
+
         },
+
         moveWidgetUp: (widget) => {
             dispatch({
                 type: "Move_Up",

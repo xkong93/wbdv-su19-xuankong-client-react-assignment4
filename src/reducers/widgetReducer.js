@@ -4,27 +4,13 @@ import WidgetService from '../services/WidgetService'
 const widgetReducer = (state = {widgets: [],preview : false}, action) => {
     if (action.type === 'DELETE_WIDGET') {
         return {
-            widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
+            widgets:action.widgets
         }
     } else if (action.type === 'CREATE_WIDGET') {
         return {
-            widgets: [
-                ...state.widgets,
-                {
-                    id: (new Date()).getTime(),
-                    name: 'New Widget',
-                    type: 'HEADING',
-                    size:'1',
-                    text: "heading demo",
-                    href: "",
-                    src: "",
-                    ordered: "true"
-
-                }
-            ]
+            widgets:action.widgets
         }
     } else if (action.type === 'UPDATE_WIDGET') {
-        console.log(action.widgets)
         return {
             widgets: action.widgets
         }
@@ -70,7 +56,6 @@ var newDownWidgets = (targetWidget,widgets) => {
     for (var i = 0; i < newArr.length; i++){
         if(targetWidget.id === newArr[i].id && i < newArr.length - 1){
             var tempWidget = newArr[i + 1]
-            console.log(tempWidget)
             newArr[i + 1] = newArr[i];
             newArr[i] = tempWidget;
             break; //once it is found, it needs to break
@@ -87,7 +72,6 @@ var newUpWidgets = (targetWidget,widgets) => {
     for (var i = 0; i < newArr.length; i++){
         if(targetWidget.id === newArr[i].id && i > 0){
             var tempWidget = newArr[i - 1]
-            console.log(tempWidget)
             newArr[i - 1] = newArr[i];
             newArr[i] = tempWidget;
             break; //once it is found, it needs to break
