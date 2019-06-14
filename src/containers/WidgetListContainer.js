@@ -25,7 +25,7 @@ const propsToDispatcher = dispatch => (
 
             service
                 .updateWidget(widget.id, widget)
-                .then(service
+                .then(()=>service //this should be anonymous func. Key point!!!
                     .findAllWidgets()
                     .then(widgets => dispatch({
                         type: "UPDATE_WIDGET",
@@ -34,16 +34,15 @@ const propsToDispatcher = dispatch => (
 
 
         },
-        deleteWidget: (widget) => {
+        deleteWidget: (widget) =>
             service
                 .deleteWidget(widget.id)
-                .then(service
+                .then(() => service
                     .findAllWidgets()
-                    .then(widgets => dispatch({
+                    .then((widgets) => dispatch({
                         type: "DELETE_WIDGET",
                         widgets: widgets
-                    })))
-        },
+                    }))),
         createWidget: () => {
             let newWidget =
                 {
@@ -58,7 +57,7 @@ const propsToDispatcher = dispatch => (
 
             service
                 .createWidget(newWidget)
-                .then(service
+                .then(()=> service
                     .findAllWidgets()
                     .then(widgets => dispatch({
                         type: "CREATE_WIDGET",

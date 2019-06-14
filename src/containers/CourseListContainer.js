@@ -37,7 +37,7 @@ export default class CourseListContainer extends React.Component {
         //     courses: this.state.courses.filter(course => course.id != id)
         // })
         this.courseService.deleteCourse(id)
-            .then(this.courseService.findAllCourses()
+            .then(() => this.courseService.findAllCourses()
                 .then(courses => this.setState({
                     courses: courses
                 })))

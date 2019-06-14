@@ -3,7 +3,7 @@ import courses from './courses.json'
 class CourseService {
 
     static myInstance = null;
-    url = 'https://infinite-headland-44584.herokuapp.com/api/courses';
+    url = 'http://localhost:8080/api/courses';
 
     static getInstance() {
         if (CourseService.myInstance == null) {
