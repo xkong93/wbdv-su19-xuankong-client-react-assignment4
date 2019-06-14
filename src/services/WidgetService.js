@@ -2,7 +2,7 @@
 export default class WidgetService {
     static myInstance = null;
 
-    url = 'http://localhost:8080/api/widgets';
+    url = 'https://infinite-headland-44584.herokuapp.com/api/widgets';
 
     static getInstance() {
         if (WidgetService.myInstance == null) {
